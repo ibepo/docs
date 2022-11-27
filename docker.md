@@ -9,15 +9,14 @@ Ubuntu Focal 20.04 (LTS)
 Ubuntu Bionic 18.04 (LTS)
 Docker 可以安装在 64 位的 x86 平台或 ARM 平台上。Ubuntu 发行版中，LTS（Long-Term-Support）长期支持版本，会获得 5 年的升级维护支持，这样的版本会更稳定，因此在生产环境中推荐使用 LTS 版本。
 
-
 > Docker 支持 64 位版本 CentOS 7/8，并且要求内核版本不低于 3.10。 CentOS 7 满足最低内核的要求，但由于内核版本比较低，部分功能（如 overlay2 存储层驱动）无法使用，并且部分功能可能不太稳定
-
-
-
 
 ```shell
 #使用脚本安装docker
 sudo wget -O get-dcoker.sh 'get.docker.com' && sudo sh get-dcoker.sh --mirror Aliyun
+#苏扬的版本
+curl -o- https://raw.githubusercontent.com/soulteary/linux-scripts/main/docker-with-mirror.sh | bash
+curl -o- https://raw.githubusercontent.com/soulteary/linux-scripts/main/docker-compose.sh | bash
 
 #测试docker是否安装成功
 sudo docker run --rm hello-world
@@ -25,7 +24,6 @@ sudo docker version #docker版本
 sudo docker info #查看相关信息
 sudo docker stats #docker状态
 ```
-
 
 ## docker权限
 >默认情况下，docker 命令会使用 Unix socket 与 Docker 引擎通讯。而只有 root 用户和 docker 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 root 用户。因此，更好地做法是将需要使用 docker 的用户加入 docker 用户组。
@@ -144,22 +142,26 @@ docker run -tid -name 容器id -p 端口号 -restart-always -v 挂载路径
 如果已经启动的项目.则使用update更新：
 docker update --restart = always 容器id
 ```
-
-
-# docker-compose
+### 进入容器
+> docker exec 后边可以跟多个参数，这里主要说明 -i -t 参数。
+只用 -i 参数时，由于没有分配伪终端，界面没有我们熟悉的 Linux 命令提示符，但命令执行结果仍然可以返回。
+当 -i -t 参数一起使用时，则可以看到我们熟悉的 Linux 命令提示符。
 ```shell
-#curl
-#-L 跟随重定向跳转
-#-o参数将服务器的回应保存成文件，等同于wget命令。
-#-O参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。
-#-s参数将不输出错误和进度信息
-#-S参数指定只输出错误信息，通常与-s一起使用。
-#-v参数输出通信的整个过程，用于调试。
-#-x参数指定 HTTP 请求的代理。
-#-X参数指定 HTTP 请求的方法。
-#下边代码演示的是通过 curl 下载 docker-compose,并下载到指定位置,然后增加执行的权限给全局
-
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-
+docker exec -it 69d1 bash
 ```
 
+## docker-compose
+### 通过脚本安装
+```shell
+curl -o- https://raw.githubusercontent.com/soulteary/linux-scripts/main/docker-with-mirror.sh | bash
+curl -o- https://raw.githubusercontent.com/soulteary/linux-scripts/main/docker-compose.sh | bash
+```
+### 一般操作
+```shell
+#启动服务(配置文件名)
+docker compose -f docker-compose-gitlab.yaml up -d
+#停止服务
+docker-compose -f docker-compose.yml stop
+#停止并删除服务
+docker-compose -f docker-compose.yml down
+```

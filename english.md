@@ -1,5 +1,25 @@
 # English
 
+## gut
+肠子 肚子 直觉
+
+# spare
+空闲
+
+## habit
+习惯
+something that you do often and regularly,sometimes without konwing that you are doing it.
+
+## tone
+/təʊn/
+口吻 腔调 口气
+
+## extra
+/ˈek.strə/ 
+
+## charm
+咒语，魅力
+
 ### approach 
 ap- at- 表朝向
 pro prometheus普鲁米修斯    表向前
@@ -33,3 +53,55 @@ a.必要的，本质的
 ess- 存在
 -ial 表形容词
 * /bin is essential binnaries for linux. 
+
+
+## 辅音+辅音
+
+stop practicing
+next time
+bad day
+big kitchen
+just didn't 
+help me
+
+喉咙部位音：k g h ng r
+齿后部位音：t d ch j l n s z sh zh y
+嘴唇部位音：p b f v m w
+
+## kind of
+kinda
+somewhat
+有那么一点
+
+## what do you think
+whodeya 
+你觉得呢
+
+## what do you do when it gets cold.
+冷的时候你怎么办？
+what do you do when she gets mad?
+当她生气的时候你怎么做？
+
+## what do you do?
+what do you do for  a living?
+
+## what do you say to ...
+成不，做不做,怎么说
+shall we ,should we, can we
+- what do you say to going out for a drink.
+- Yes./No
+
+## what do you want to ....
+whadeya wanna 
+你想要 do something。
+
+
+## what do you+verb?
+1. what do you think(about) ...
+2. what do you mean (by)... 
+3. what do you say (to)...
+4. what do you want ...
+5. what do you do ...
+6. what do you konw...
+7. what do you got... 手里有什么？
+8. what do you need...
